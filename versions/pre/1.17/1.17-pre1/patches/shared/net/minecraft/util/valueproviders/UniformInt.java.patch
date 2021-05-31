@@ -1,0 +1,11 @@
+--- a/net/minecraft/util/valueproviders/UniformInt.java
++++ b/net/minecraft/util/valueproviders/UniformInt.java
+@@ -8,7 +8,7 @@
+ import net.minecraft.util.Mth;
+ 
+ public class UniformInt extends IntProvider {
+-   public static final Codec<UniformInt> f_146613_ = RecordCodecBuilder.create((p_146627_) -> {
++   public static final Codec<UniformInt> f_146613_ = RecordCodecBuilder.<UniformInt>create((p_146627_) -> {
+       return p_146627_.group(Codec.INT.fieldOf("min_inclusive").forGetter((p_146635_) -> {
+          return p_146635_.f_146614_;
+       }), Codec.INT.fieldOf("max_inclusive").forGetter((p_146632_) -> {

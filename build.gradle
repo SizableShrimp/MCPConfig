@@ -337,7 +337,7 @@ subprojects {
             target projectSharedReset.target
             patches project.file('patches/shared')
         }
-        task projectSharedMakePatches(type: MakePatchesTask, dependsOn: deduplicateSources) {
+        task projectSharedMakePatches(type: MakePatchesTask, dependsOn: [deduplicateSources, projectRoot]) {
             rootZip deduplicateSources.duplicates
             target projectSharedApplyPatches.target
             patches projectSharedApplyPatches.patches
