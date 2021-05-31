@@ -1,0 +1,9 @@
+--- a/com/mojang/blaze3d/pipeline/package-info.java
++++ b/com/mojang/blaze3d/pipeline/package-info.java
+@@ -1,6 +1,5 @@
+ @ParametersAreNonnullByDefault
+ @MethodsReturnNonnullByDefault
+-@OnlyIn(Dist.CLIENT)
+ package com.mojang.blaze3d.pipeline;
+ 
+ import com.mojang.blaze3d.MethodsReturnNonnullByDefault;

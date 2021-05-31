@@ -1,0 +1,10 @@
+--- a/net/minecraft/client/tutorial/package-info.java
++++ b/net/minecraft/client/tutorial/package-info.java
+@@ -1,7 +1,6 @@
+ @ParametersAreNonnullByDefault
+ @MethodsReturnNonnullByDefault
+ @FieldsAreNonnullByDefault
+-@OnlyIn(Dist.CLIENT)
+ package net.minecraft.client.tutorial;
+ 
+ import javax.annotation.ParametersAreNonnullByDefault;

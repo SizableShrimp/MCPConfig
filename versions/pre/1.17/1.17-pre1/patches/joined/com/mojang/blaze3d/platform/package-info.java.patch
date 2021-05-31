@@ -1,0 +1,10 @@
+--- a/com/mojang/blaze3d/platform/package-info.java
++++ b/com/mojang/blaze3d/platform/package-info.java
+@@ -1,7 +1,6 @@
+ @ParametersAreNonnullByDefault
+ @MethodsReturnNonnullByDefault
+ @FieldsAreNonnullByDefault
+-@OnlyIn(Dist.CLIENT)
+ package com.mojang.blaze3d.platform;
+ 
+ import com.mojang.blaze3d.FieldsAreNonnullByDefault;
