@@ -7,7 +7,7 @@
 -      WritableRegistry<R> writableregistry = f_122896_;
 -      return writableregistry.m_7135_(p_122986_, p_122987_, p_122989_);
 +      WritableRegistry<R> writableregistry = (WritableRegistry<R>)f_122896_;
-+      return writableregistry.m_7135_((ResourceKey<R>)p_122986_, p_122987_, p_122989_);
++      return writableregistry.m_7135_((ResourceKey<R>)(ResourceKey)p_122986_, p_122987_, p_122989_);
     }
  
     protected Registry(ResourceKey<? extends Registry<T>> p_122920_, Lifecycle p_122921_) {
