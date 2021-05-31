@@ -11,3 +11,12 @@
        return this.fixTypeEverywhere("EntityMinecartIdentifiersFix", taggedchoicetype, taggedchoicetype1, (p_15485_) -> {
           return (p_145289_) -> {
              if (!Objects.equals(p_145289_.getFirst(), "Minecart")) {
+@@ -37,7 +37,7 @@
+                   s = "MinecartRideable";
+                }
+ 
+-               return Pair.of(s, typed.write().map((p_145293_) -> {
++               return Pair.of(s, ((com.mojang.serialization.DataResult<com.mojang.serialization.Dynamic<Pair<String, ?>>>)typed.write()).map((p_145293_) -> {
+                   return taggedchoicetype1.types().get(s).read(p_145293_);
+                }).result().orElseThrow(() -> {
+                   return new IllegalStateException("Could not read the new minecart.");
