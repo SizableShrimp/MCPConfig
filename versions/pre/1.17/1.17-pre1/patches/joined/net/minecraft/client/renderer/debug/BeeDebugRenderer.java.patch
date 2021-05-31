@@ -1,0 +1,11 @@
+--- a/net/minecraft/client/renderer/debug/BeeDebugRenderer.java
++++ b/net/minecraft/client/renderer/debug/BeeDebugRenderer.java
+@@ -188,7 +188,7 @@
+    private void m_113092_(BlockPos p_113093_, List<String> p_113094_) {
+       float f = 0.05F;
+       m_113078_(p_113093_, 0.05F, 0.2F, 0.2F, 1.0F, 0.3F);
+-      m_113110_(p_113094_.makeConcatWithConstants<invokedynamic>(p_113094_), p_113093_, 0, -256);
++      m_113110_("" + p_113094_, p_113093_, 0, -256);
+       m_113110_("Ghost Hive", p_113093_, 1, -65536);
+    }
+ 

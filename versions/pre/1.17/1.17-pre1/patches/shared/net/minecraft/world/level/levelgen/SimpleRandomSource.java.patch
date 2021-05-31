@@ -58,7 +58,8 @@
     }
  
 -   public double m_142173_() {
-+   public double nextGuassian() {
-       // $FF: Couldn't be decompiled
+-      // $FF: Couldn't be decompiled
++   public double nextGaussian() { //TODO fix
++      return 0;
     }
  }

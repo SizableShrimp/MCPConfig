@@ -1,0 +1,11 @@
+--- a/net/minecraft/network/chat/NbtComponent.java
++++ b/net/minecraft/network/chat/NbtComponent.java
+@@ -93,7 +93,7 @@
+                return stream.map((p_178471_) -> {
+                   return new TextComponent(p_178471_);
+                }).reduce((p_178468_, p_178469_) -> {
+-                  return p_178468_.m_7220_(p_178461_).m_7220_(p_178469_);
++                  return (TextComponent) p_178468_.m_7220_(p_178461_).m_7220_(p_178469_);
+                }).orElseGet(() -> {
+                   return new TextComponent("");
+                });
