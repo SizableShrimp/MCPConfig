@@ -326,7 +326,7 @@ subprojects {
             target projectSharedReset.target
             patches project.file('patches/shared')
         }
-        task projectSharedMakePatches(type: MakePatchesTask, dependsOn: deduplicateSources) {
+        task projectSharedMakePatches(type: MakePatchesTask, dependsOn: [deduplicateSources, projectRoot]) {
             rootZip deduplicateSources.duplicates
             target projectSharedApplyPatches.target
             patches projectSharedApplyPatches.patches
@@ -417,10 +417,11 @@ subprojects {
         testApi.dependsOn(testApiSide)
         
         def jdks = [
-            [name: 'hotspot8',  Name: 'HotSpot8',  version: 8,  official: false],
-            [name: 'hotspot11', Name: 'HotSpot11', version: 11, official: false],
-            [name: 'hotspot15', Name: 'HotSpot15', version: 15, official: false],
-            [name: 'official8', Name: 'Official8', version: 8,  official: true ]
+            [name: 'hotspot16',  Name: 'HotSpot16',  version: 16,  official: false],
+            // [name: 'hotspot8',  Name: 'HotSpot8',  version: 8,  official: false],
+            // [name: 'hotspot11', Name: 'HotSpot11', version: 11, official: false],
+            // [name: 'hotspot15', Name: 'HotSpot15', version: 15, official: false],
+            // [name: 'official8', Name: 'Official8', version: 8,  official: true ]
         ]
         jdks.each{ jdk ->
             def testPath = project.file(PATH_CACHED_VERSION + 'test/' + jdk.name + '/')

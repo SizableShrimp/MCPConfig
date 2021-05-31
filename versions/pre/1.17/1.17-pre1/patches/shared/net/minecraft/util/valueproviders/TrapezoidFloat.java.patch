@@ -1,0 +1,11 @@
+--- a/net/minecraft/util/valueproviders/TrapezoidFloat.java
++++ b/net/minecraft/util/valueproviders/TrapezoidFloat.java
+@@ -7,7 +7,7 @@
+ import java.util.function.Function;
+ 
+ public class TrapezoidFloat extends FloatProvider {
+-   public static final Codec<TrapezoidFloat> f_146560_ = RecordCodecBuilder.create((p_146577_) -> {
++   public static final Codec<TrapezoidFloat> f_146560_ = RecordCodecBuilder.<TrapezoidFloat>create((p_146577_) -> {
+       return p_146577_.group(Codec.FLOAT.fieldOf("min").forGetter((p_146587_) -> {
+          return p_146587_.f_146561_;
+       }), Codec.FLOAT.fieldOf("max").forGetter((p_146585_) -> {

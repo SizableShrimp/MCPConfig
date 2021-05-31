@@ -1,0 +1,15 @@
+--- a/net/minecraft/world/level/levelgen/NoiseBasedChunkGenerator.java
++++ b/net/minecraft/world/level/levelgen/NoiseBasedChunkGenerator.java
+@@ -110,9 +110,9 @@
+          simplexnoise = null;
+       }
+ 
+-      this.f_158379_ = NormalNoise.m_164354_(new SimpleRandomSource(worldgenrandom.m_142583_()), -3, 1.0D);
+-      this.f_158380_ = NormalNoise.m_164354_(new SimpleRandomSource(worldgenrandom.m_142583_()), -3, 1.0D, 0.0D, 2.0D);
+-      this.f_158381_ = NormalNoise.m_164354_(new SimpleRandomSource(worldgenrandom.m_142583_()), -1, 1.0D, 0.0D);
++      this.f_158379_ = NormalNoise.m_164354_(new SimpleRandomSource(worldgenrandom.nextLong()), -3, 1.0D);
++      this.f_158380_ = NormalNoise.m_164354_(new SimpleRandomSource(worldgenrandom.nextLong()), -3, 1.0D, 0.0D, 2.0D);
++      this.f_158381_ = NormalNoise.m_164354_(new SimpleRandomSource(worldgenrandom.nextLong()), -1, 1.0D, 0.0D);
+       NoiseModifier noisemodifier;
+       if (noisegeneratorsettings.m_158568_()) {
+          noisemodifier = new Cavifier(worldgenrandom, noisesettings.m_158703_() / this.f_158374_);
