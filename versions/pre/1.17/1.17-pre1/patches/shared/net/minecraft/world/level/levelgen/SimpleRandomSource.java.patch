@@ -71,7 +71,7 @@
 +            do {
 +               var1 = 2.0D * this.nextDouble() - 1.0D;
 +                  var3 = 2.0D * this.nextDouble() - 1.0D;
-+                  var5 = net.minecraft.util.Mth.m_144951_(var1) + Mth.m_144951_(var3);
++                  var5 = net.minecraft.util.Mth.m_144951_(var1) + net.minecraft.util.Mth.m_144951_(var3);
 +               } while(var5 >= 1.0D);
 +         } while(var5 == 0.0D);
 +
