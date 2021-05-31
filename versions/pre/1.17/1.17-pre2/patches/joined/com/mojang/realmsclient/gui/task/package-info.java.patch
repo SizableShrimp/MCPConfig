@@ -1,0 +1,11 @@
+--- a/com/mojang/realmsclient/gui/task/package-info.java
++++ b/com/mojang/realmsclient/gui/task/package-info.java
+@@ -1,7 +1,7 @@
+ @ParametersAreNonnullByDefault
+ @MethodsReturnNonnullByDefault
+ @FieldsAreNonnullByDefault
+-@OnlyIn(Dist.CLIENT)
++ 
+ package com.mojang.realmsclient.gui.task;
+ 
+ import javax.annotation.ParametersAreNonnullByDefault;

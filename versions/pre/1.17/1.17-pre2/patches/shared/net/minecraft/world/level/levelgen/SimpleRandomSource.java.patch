@@ -1,0 +1,84 @@
+--- a/net/minecraft/world/level/levelgen/SimpleRandomSource.java
++++ b/net/minecraft/world/level/levelgen/SimpleRandomSource.java
+@@ -17,10 +17,10 @@
+    private boolean f_158888_;
+ 
+    public SimpleRandomSource(long p_158890_) {
+-      this.m_142714_(p_158890_);
++      this.setSeed(p_158890_);
+    }
+ 
+-   public void m_142714_(long p_158902_) {
++   public void setSeed(long p_158902_) {
+       if (!this.f_158886_.compareAndSet(this.f_158886_.get(), (p_158902_ ^ 25214903917L) & 281474976710655L)) {
+          throw ThreadingDetector.m_145006_("SimpleRandomSource", (DebugBuffer<Pair<Thread, StackTraceElement[]>>)null);
+       }
+@@ -36,11 +36,11 @@
+       }
+    }
+ 
+-   public int m_142703_() {
++   public int nextInt() {
+       return this.m_158891_(32);
+    }
+ 
+-   public int m_142421_(int p_158899_) {
++   public int nextInt(int p_158899_) {
+       if (p_158899_ <= 0) {
+          throw new IllegalArgumentException("Bound must be positive");
+       } else if ((p_158899_ & p_158899_ - 1) == 0) {
+@@ -57,29 +57,48 @@
+       }
+    }
+ 
+-   public long m_142583_() {
++   public long nextLong() {
+       int i = this.m_158891_(32);
+       int j = this.m_158891_(32);
+       long k = (long)i << 32;
+       return k + (long)j;
+    }
+ 
+-   public boolean m_142706_() {
++   public boolean nextBoolean() {
+       return this.m_158891_(1) != 0;
+    }
+ 
+-   public float m_142508_() {
++   public float nextFloat() {
+       return (float)this.m_158891_(24) * 5.9604645E-8F;
+    }
+ 
+-   public double m_142055_() {
++   public double nextDouble() {
+       int i = this.m_158891_(26);
+       int j = this.m_158891_(27);
+       long k = ((long)i << 27) + (long)j;
+       return (double)k * (double)1.110223E-16F;
+    }
+ 
+-   public double m_142173_() {
+-      // $FF: Couldn't be decompiled
++   public double nextGaussian() {
++      if (this.f_158888_) {
++         this.f_158888_ = false;
++         return this.f_158887_;
++      } else {
++         double var1;
++         double var3;
++         double var5;
++         do {
++            do {
++               var1 = 2.0D * this.nextDouble() - 1.0D;
++                  var3 = 2.0D * this.nextDouble() - 1.0D;
++                  var5 = net.minecraft.util.Mth.m_144951_(var1) + net.minecraft.util.Mth.m_144951_(var3);
++               } while(var5 >= 1.0D);
++         } while(var5 == 0.0D);
++
++         double var7 = Math.sqrt(-2.0D * Math.log(var5) / var5);
++         this.f_158887_ = var3 * var7;
++         this.f_158888_ = true;
++         return var1 * var7;
+    }
+ }
++}

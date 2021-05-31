@@ -1,0 +1,11 @@
+--- a/net/minecraft/client/profiling/package-info.java
++++ b/net/minecraft/client/profiling/package-info.java
+@@ -1,7 +1,7 @@
+ @ParametersAreNonnullByDefault
+ @MethodsReturnNonnullByDefault
+ @FieldsAreNonnullByDefault
+-@OnlyIn(Dist.CLIENT)
++ 
+ package net.minecraft.client.profiling;
+ 
+ import javax.annotation.ParametersAreNonnullByDefault;

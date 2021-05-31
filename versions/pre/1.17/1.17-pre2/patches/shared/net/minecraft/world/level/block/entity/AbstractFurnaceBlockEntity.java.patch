@@ -1,0 +1,11 @@
+--- a/net/minecraft/world/level/block/entity/AbstractFurnaceBlockEntity.java
++++ b/net/minecraft/world/level/block/entity/AbstractFurnaceBlockEntity.java
+@@ -239,7 +239,7 @@
+ 
+       ItemStack itemstack = p_155016_.f_58310_.get(1);
+       if (p_155016_.m_58425_() || !itemstack.m_41619_() && !p_155016_.f_58310_.get(0).m_41619_()) {
+-         Recipe<?> recipe = p_155013_.m_7465_().m_44015_(p_155016_.f_58312_, p_155016_, p_155013_).orElse((AbstractCookingRecipe)null);
++         Recipe<?> recipe = p_155013_.m_7465_().m_44015_(p_155016_.f_58312_, p_155016_, p_155013_).orElse(null);
+          int i = p_155016_.m_6893_();
+          if (!p_155016_.m_58425_() && m_155004_(recipe, p_155016_.f_58310_, i)) {
+             p_155016_.f_58316_ = p_155016_.m_7743_(itemstack);

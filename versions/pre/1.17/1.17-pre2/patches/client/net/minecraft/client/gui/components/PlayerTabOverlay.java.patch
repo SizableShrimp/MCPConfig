@@ -1,0 +1,20 @@
+--- a/net/minecraft/client/gui/components/PlayerTabOverlay.java
++++ b/net/minecraft/client/gui/components/PlayerTabOverlay.java
+@@ -276,7 +276,7 @@
+             } else {
+                float f = Mth.m_14036_((float)i / 20.0F, 0.0F, 1.0F);
+                int k1 = (int)((1.0F - f) * 255.0F) << 16 | (int)(f * 255.0F) << 8;
+-               String s = ((float)i / 2.0F).makeConcatWithConstants<invokedynamic>((float)i / 2.0F);
++               String s = "" + ((float)i / 2.0F);
+                if (p_94535_ - this.f_94519_.f_91062_.m_92895_(s + "hp") >= p_94534_) {
+                   s = s + "hp";
+                }
+@@ -285,7 +285,7 @@
+             }
+          }
+       } else {
+-         String s1 = ChatFormatting.YELLOW + i;
++         String s1 = ChatFormatting.YELLOW.toString() + i;
+          this.f_94519_.f_91062_.m_92750_(p_94537_, s1, (float)(p_94535_ - this.f_94519_.f_91062_.m_92895_(s1)), (float)p_94532_, 16777215);
+       }
+ 

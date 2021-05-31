@@ -1,0 +1,41 @@
+--- a/net/minecraft/world/level/levelgen/Cavifier.java
++++ b/net/minecraft/world/level/levelgen/Cavifier.java
+@@ -27,22 +27,22 @@
+ 
+    public Cavifier(RandomSource p_158115_, int p_158116_) {
+       this.f_158095_ = p_158116_;
+-      this.f_158097_ = NormalNoise.m_164354_(new SimpleRandomSource(p_158115_.m_142583_()), -7, 1.0D, 1.0D);
+-      this.f_158098_ = NormalNoise.m_164354_(new SimpleRandomSource(p_158115_.m_142583_()), -8, 1.0D);
+-      this.f_158099_ = NormalNoise.m_164354_(new SimpleRandomSource(p_158115_.m_142583_()), -8, 1.0D);
+-      this.f_158100_ = NormalNoise.m_164354_(new SimpleRandomSource(p_158115_.m_142583_()), -7, 1.0D);
+-      this.f_158101_ = NormalNoise.m_164354_(new SimpleRandomSource(p_158115_.m_142583_()), -8, 1.0D);
+-      this.f_158102_ = NormalNoise.m_164354_(new SimpleRandomSource(p_158115_.m_142583_()), -11, 1.0D);
+-      this.f_158103_ = NormalNoise.m_164354_(new SimpleRandomSource(p_158115_.m_142583_()), -11, 1.0D);
+-      this.f_158104_ = NormalNoise.m_164354_(new SimpleRandomSource(p_158115_.m_142583_()), -7, 1.0D);
+-      this.f_158105_ = NormalNoise.m_164354_(new SimpleRandomSource(p_158115_.m_142583_()), -7, 1.0D);
+-      this.f_158106_ = NormalNoise.m_164354_(new SimpleRandomSource(p_158115_.m_142583_()), -11, 1.0D);
+-      this.f_158107_ = NormalNoise.m_164354_(new SimpleRandomSource(p_158115_.m_142583_()), -8, 1.0D);
+-      this.f_158108_ = NormalNoise.m_164354_(new SimpleRandomSource(p_158115_.m_142583_()), -5, 1.0D);
+-      this.f_158109_ = NormalNoise.m_164354_(new SimpleRandomSource(p_158115_.m_142583_()), -8, 1.0D);
+-      this.f_158110_ = NormalNoise.m_164354_(new SimpleRandomSource(p_158115_.m_142583_()), -8, 1.0D, 1.0D, 1.0D);
+-      this.f_158096_ = NormalNoise.m_164354_(new SimpleRandomSource(p_158115_.m_142583_()), -8, 1.0D);
+-      this.f_158111_ = NormalNoise.m_164354_(new SimpleRandomSource(p_158115_.m_142583_()), -8, 0.5D, 1.0D, 2.0D, 1.0D, 2.0D, 1.0D, 0.0D, 2.0D, 0.0D);
++      this.f_158097_ = NormalNoise.m_164354_(new SimpleRandomSource(p_158115_.nextLong()), -7, 1.0D, 1.0D);
++      this.f_158098_ = NormalNoise.m_164354_(new SimpleRandomSource(p_158115_.nextLong()), -8, 1.0D);
++      this.f_158099_ = NormalNoise.m_164354_(new SimpleRandomSource(p_158115_.nextLong()), -8, 1.0D);
++      this.f_158100_ = NormalNoise.m_164354_(new SimpleRandomSource(p_158115_.nextLong()), -7, 1.0D);
++      this.f_158101_ = NormalNoise.m_164354_(new SimpleRandomSource(p_158115_.nextLong()), -8, 1.0D);
++      this.f_158102_ = NormalNoise.m_164354_(new SimpleRandomSource(p_158115_.nextLong()), -11, 1.0D);
++      this.f_158103_ = NormalNoise.m_164354_(new SimpleRandomSource(p_158115_.nextLong()), -11, 1.0D);
++      this.f_158104_ = NormalNoise.m_164354_(new SimpleRandomSource(p_158115_.nextLong()), -7, 1.0D);
++      this.f_158105_ = NormalNoise.m_164354_(new SimpleRandomSource(p_158115_.nextLong()), -7, 1.0D);
++      this.f_158106_ = NormalNoise.m_164354_(new SimpleRandomSource(p_158115_.nextLong()), -11, 1.0D);
++      this.f_158107_ = NormalNoise.m_164354_(new SimpleRandomSource(p_158115_.nextLong()), -8, 1.0D);
++      this.f_158108_ = NormalNoise.m_164354_(new SimpleRandomSource(p_158115_.nextLong()), -5, 1.0D);
++      this.f_158109_ = NormalNoise.m_164354_(new SimpleRandomSource(p_158115_.nextLong()), -8, 1.0D);
++      this.f_158110_ = NormalNoise.m_164354_(new SimpleRandomSource(p_158115_.nextLong()), -8, 1.0D, 1.0D, 1.0D);
++      this.f_158096_ = NormalNoise.m_164354_(new SimpleRandomSource(p_158115_.nextLong()), -8, 1.0D);
++      this.f_158111_ = NormalNoise.m_164354_(new SimpleRandomSource(p_158115_.nextLong()), -8, 0.5D, 1.0D, 2.0D, 1.0D, 2.0D, 1.0D, 0.0D, 2.0D, 0.0D);
+    }
+ 
+    public double m_142122_(double p_158151_, int p_158152_, int p_158153_, int p_158154_) {

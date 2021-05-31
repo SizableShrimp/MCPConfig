@@ -1,0 +1,11 @@
+--- a/net/minecraft/world/level/levelgen/feature/StrongholdFeature.java
++++ b/net/minecraft/world/level/levelgen/feature/StrongholdFeature.java
+@@ -50,7 +50,7 @@
+             List<StructurePiece> list = strongholdpieces$startpiece.f_73235_;
+ 
+             while(!list.isEmpty()) {
+-               int j = this.f_73564_.m_142421_(list.size());
++               int j = this.f_73564_.nextInt(list.size());
+                StructurePiece structurepiece = list.remove(j);
+                structurepiece.m_142537_(strongholdpieces$startpiece, this, this.f_73564_);
+             }

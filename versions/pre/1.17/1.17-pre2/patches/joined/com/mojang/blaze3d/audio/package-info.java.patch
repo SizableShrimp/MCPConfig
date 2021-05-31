@@ -1,0 +1,11 @@
+--- a/com/mojang/blaze3d/audio/package-info.java
++++ b/com/mojang/blaze3d/audio/package-info.java
+@@ -1,7 +1,7 @@
+ @ParametersAreNonnullByDefault
+ @MethodsReturnNonnullByDefault
+ @FieldsAreNonnullByDefault
+-@OnlyIn(Dist.CLIENT)
++ 
+ package com.mojang.blaze3d.audio;
+ 
+ import com.mojang.blaze3d.MethodsReturnNonnullByDefault;

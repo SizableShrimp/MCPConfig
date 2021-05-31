@@ -1,0 +1,76 @@
+--- a/net/minecraft/world/level/levelgen/surfacebuilders/BadlandsSurfaceBuilder.java
++++ b/net/minecraft/world/level/levelgen/surfacebuilders/BadlandsSurfaceBuilder.java
+@@ -130,59 +130,59 @@
+       this.f_74713_ = new PerlinSimplexNoise(worldgenrandom, ImmutableList.of(0));
+ 
+       for(int l1 = 0; l1 < 64; ++l1) {
+-         l1 += worldgenrandom.m_142421_(5) + 1;
++         l1 += worldgenrandom.nextInt(5) + 1;
+          if (l1 < 64) {
+             this.f_74709_[l1] = f_74703_;
+          }
+       }
+ 
+-      int i2 = worldgenrandom.m_142421_(4) + 2;
++      int i2 = worldgenrandom.nextInt(4) + 2;
+ 
+       for(int i = 0; i < i2; ++i) {
+-         int j = worldgenrandom.m_142421_(3) + 1;
+-         int k = worldgenrandom.m_142421_(64);
++         int j = worldgenrandom.nextInt(3) + 1;
++         int k = worldgenrandom.nextInt(64);
+ 
+          for(int l = 0; k + l < 64 && l < j; ++l) {
+             this.f_74709_[k + l] = f_74705_;
+          }
+       }
+ 
+-      int j2 = worldgenrandom.m_142421_(4) + 2;
++      int j2 = worldgenrandom.nextInt(4) + 2;
+ 
+       for(int k2 = 0; k2 < j2; ++k2) {
+-         int i3 = worldgenrandom.m_142421_(3) + 2;
+-         int l3 = worldgenrandom.m_142421_(64);
++         int i3 = worldgenrandom.nextInt(3) + 2;
++         int l3 = worldgenrandom.nextInt(64);
+ 
+          for(int i1 = 0; l3 + i1 < 64 && i1 < i3; ++i1) {
+             this.f_74709_[l3 + i1] = f_74706_;
+          }
+       }
+ 
+-      int l2 = worldgenrandom.m_142421_(4) + 2;
++      int l2 = worldgenrandom.nextInt(4) + 2;
+ 
+       for(int j3 = 0; j3 < l2; ++j3) {
+-         int i4 = worldgenrandom.m_142421_(3) + 1;
+-         int k4 = worldgenrandom.m_142421_(64);
++         int i4 = worldgenrandom.nextInt(3) + 1;
++         int k4 = worldgenrandom.nextInt(64);
+ 
+          for(int j1 = 0; k4 + j1 < 64 && j1 < i4; ++j1) {
+             this.f_74709_[k4 + j1] = f_74707_;
+          }
+       }
+ 
+-      int k3 = worldgenrandom.m_142421_(3) + 3;
++      int k3 = worldgenrandom.nextInt(3) + 3;
+       int j4 = 0;
+ 
+       for(int l4 = 0; l4 < k3; ++l4) {
+          int i5 = 1;
+-         j4 += worldgenrandom.m_142421_(16) + 4;
++         j4 += worldgenrandom.nextInt(16) + 4;
+ 
+          for(int k1 = 0; j4 + k1 < 64 && k1 < 1; ++k1) {
+             this.f_74709_[j4 + k1] = f_74702_;
+-            if (j4 + k1 > 1 && worldgenrandom.m_142706_()) {
++            if (j4 + k1 > 1 && worldgenrandom.nextBoolean()) {
+                this.f_74709_[j4 + k1 - 1] = f_74708_;
+             }
+ 
+-            if (j4 + k1 < 63 && worldgenrandom.m_142706_()) {
++            if (j4 + k1 < 63 && worldgenrandom.nextBoolean()) {
+                this.f_74709_[j4 + k1 + 1] = f_74708_;
+             }
+          }

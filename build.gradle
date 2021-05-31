@@ -300,12 +300,6 @@ subprojects {
             
         }
         decompileAll.dependsOn(child.decompile)
-        
-        // child.pkgs = task "create${child.Name}PackageInfos"(type: MakePackageInfos, dependsOn: child.decompile) {
-        //     input = child.decompile.dest
-        //     template = PATH_INJECT_TEMPLATE.exists() ? PATH_INJECT_TEMPLATE : null
-        //     dest = file(PATH_CACHED_VERSION + side + '.pkgs.jar')
-        // }
     }
     
     if (MERGE_PATCHES) {
@@ -320,6 +314,7 @@ subprojects {
         }
         
         task projectSharedReset(type: ResetSourcesTask, dependsOn: [deduplicateSources, projectRoot]) {
+            project.file('projects/shared').mkdirs()
             rootZip deduplicateSources.duplicates
             target project.file('projects/shared')
         }
@@ -369,11 +364,6 @@ subprojects {
         }
         projectAll.dependsOn(child.project)
 
-        // child.resetPkgs = task "project${child.Name}ResetPackages"(type: ResetSourcesTask, dependsOn: child.pkgs) {
-        //     mustRunAfter child.project
-        //     rootZip child.pkgs.dest
-        //     target new File(project_dir, 'src/pkginfo/java')
-        // }
         child.reset = task "project${child.Name}Reset"(type: ResetSourcesTask, dependsOn: [child.project, child.decompile] + (MERGE_PATCHES ? [projectSharedReset] : [])) {
             mustRunAfter child.project
             if (MERGE_PATCHES) {
@@ -388,6 +378,7 @@ subprojects {
         projectResetAll.dependsOn(child.reset)
         
         child.apply = task "project${child.Name}ApplyPatches"(type: ApplyPatchesTask, dependsOn: [child.reset] + (MERGE_PATCHES ? [projectSharedApplyPatches] : [])) {
+            patches_dir.mkdirs()
             target new File(project_dir, 'src/main/java')
             patches patches_dir
         }

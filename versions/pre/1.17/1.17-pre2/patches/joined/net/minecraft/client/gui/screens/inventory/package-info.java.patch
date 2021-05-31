@@ -1,0 +1,11 @@
+--- a/net/minecraft/client/gui/screens/inventory/package-info.java
++++ b/net/minecraft/client/gui/screens/inventory/package-info.java
+@@ -1,7 +1,7 @@
+ @ParametersAreNonnullByDefault
+ @MethodsReturnNonnullByDefault
+ @FieldsAreNonnullByDefault
+-@OnlyIn(Dist.CLIENT)
++ 
+ package net.minecraft.client.gui.screens.inventory;
+ 
+ import javax.annotation.ParametersAreNonnullByDefault;
