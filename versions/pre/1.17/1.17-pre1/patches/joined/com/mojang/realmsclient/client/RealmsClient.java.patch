@@ -1,0 +1,11 @@
+--- a/com/mojang/realmsclient/client/RealmsClient.java
++++ b/com/mojang/realmsclient/client/RealmsClient.java
+@@ -150,7 +150,7 @@
+    }
+ 
+    public RealmsServerAddress m_87207_(long p_87208_) throws RealmsServiceException {
+-      String s = this.m_87227_("worlds" + "/v1/$ID/join/pc".replace("$ID", p_87208_.makeConcatWithConstants<invokedynamic>(p_87208_)));
++      String s = this.m_87227_("worlds" + "/v1/$ID/join/pc".replace("$ID", "" + p_87208_));
+       String s1 = this.m_87195_(Request.m_87318_(s, 5000, 30000));
+       return RealmsServerAddress.m_87571_(s1);
+    }

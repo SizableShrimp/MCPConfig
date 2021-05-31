@@ -381,7 +381,9 @@ subprojects {
             } else {
                 rootDir child.decompile.dest
             }
-            target new File(project_dir, 'src/main/java')
+            def t = new File(project_dir, 'src/main/java')
+            t.mkdirs()
+            target t
         }
         projectResetAll.dependsOn(child.reset)
         

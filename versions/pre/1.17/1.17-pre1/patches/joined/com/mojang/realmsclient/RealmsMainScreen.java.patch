@@ -1,6 +1,6 @@
 --- a/com/mojang/realmsclient/RealmsMainScreen.java
 +++ b/com/mojang/realmsclient/RealmsMainScreen.java
-@@ -1110,9 +1110,12 @@
+@@ -1134,9 +1134,12 @@
     @OnlyIn(Dist.CLIENT)
     class CloseButton extends Button {
        public CloseButton() {
@@ -15,13 +15,12 @@
        }
  
        public void m_6303_(PoseStack p_86777_, int p_86778_, int p_86779_, float p_86780_) {
-@@ -1144,7 +1147,12 @@
+@@ -1166,7 +1169,11 @@
     @OnlyIn(Dist.CLIENT)
     class NewsButton extends Button {
        public NewsButton() {
--         super(RealmsMainScreen.this.f_96543_ - 62, 6, 20, 20, TextComponent.f_131282_, (p_86804_) -> {
-+         super(RealmsMainScreen.this.f_96543_ - 62, 6, 20, 20, TextComponent.f_131282_, null);
-+         this.m_93666_(new TranslatableComponent("mco.news"));
+-         super(RealmsMainScreen.this.f_96543_ - 62, 6, 20, 20, new TranslatableComponent("mco.news"), (p_86804_) -> {
++         super(RealmsMainScreen.this.f_96543_ - 62, 6, 20, 20, new TranslatableComponent("mco.news"), null);
 +      }
 +
 +      @Override
@@ -29,34 +28,27 @@
              if (RealmsMainScreen.this.f_86259_ != null) {
                 Util.m_137581_().m_137646_(RealmsMainScreen.this.f_86259_);
                 if (RealmsMainScreen.this.f_86258_) {
-@@ -1155,8 +1163,6 @@
+@@ -1177,7 +1184,6 @@
                 }
  
              }
 -         });
--         this.m_93666_(new TranslatableComponent("mco.news"));
        }
  
        public void m_6303_(PoseStack p_86806_, int p_86807_, int p_86808_, float p_86809_) {
-@@ -1167,11 +1173,14 @@
-    @OnlyIn(Dist.CLIENT)
-    class PendingInvitesButton extends Button implements TickableWidget {
-       public PendingInvitesButton() {
--         super(RealmsMainScreen.this.f_96543_ / 2 + 47, 6, 22, 22, TextComponent.f_131282_, (p_86815_) -> {
--            RealmsMainScreen.this.m_86518_(p_86815_);
--         });
-+         super(RealmsMainScreen.this.f_96543_ / 2 + 47, 6, 22, 22, TextComponent.f_131282_, null);
+@@ -1191,6 +1197,11 @@
+          super(RealmsMainScreen.this.f_96543_ / 2 + 47, 6, 22, 22, TextComponent.f_131282_, RealmsMainScreen.this::m_86518_);
        }
  
 +      @Override
 +      public void m_5691_() {
-+            RealmsMainScreen.this.m_86518_(this);
++         RealmsMainScreen.this.m_86518_(this);
 +      }
 +
-       public void m_5719_() {
-          this.m_93666_(new TranslatableComponent(RealmsMainScreen.this.f_86292_ == 0 ? "mco.invites.nopending" : "mco.invites.pending"));
+       public void m_86821_() {
+          this.m_93666_(RealmsMainScreen.this.f_86292_ == 0 ? RealmsMainScreen.f_86235_ : RealmsMainScreen.f_86236_);
        }
-@@ -1456,9 +1465,12 @@
+@@ -1472,9 +1483,12 @@
     @OnlyIn(Dist.CLIENT)
     class ShowPopupButton extends Button {
        public ShowPopupButton() {
