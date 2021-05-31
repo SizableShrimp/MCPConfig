@@ -2,7 +2,7 @@ buildscript {
     repositories {
         mavenLocal()
         mavenCentral()
-        maven { url = 'https://files.minecraftforge.net/maven/'}
+        maven { url = 'https://maven.minecraftforge.net/' }
         maven { url = 'https://plugins.gradle.org/m2/' }
     }
     dependencies {
@@ -708,12 +708,15 @@ subprojects {
         }
         repositories {
             maven {
-                if (project.hasProperty('mavenPassword')) {
-                    credentials {
-                        username = project.properties.mavenUser
-                        password = project.properties.mavenPassword
+                if (System.env.MAVEN_USER) {
+                    url "https://maven.minecraftforge.net/releases/"
+                    authentication {
+                        basic(BasicAuthentication)
                     }
-                    url 'https://files.minecraftforge.net/maven/manage/upload'
+                    credentials {
+                        username = System.env.MAVEN_USER ?: 'not'
+                        password = System.env.MAVEN_PASSWORD ?: 'set'
+                    }
                 } else {
                     url 'file://' + rootProject.file('repo').getAbsolutePath()
                 }
