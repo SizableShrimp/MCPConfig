@@ -33,7 +33,7 @@ ext {
 }
 
 if (file(INJECT).exists()) {
-    sourceSets.create('pkginfo')
+    // sourceSets.create('pkginfo')
     sourceSets.create('inject') {
         java {
             srcDir INJECT

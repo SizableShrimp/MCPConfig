@@ -7,12 +7,13 @@ buildscript {
     }
     dependencies {
         classpath 'net.minecraftforge:srgutils:0.4.3'
+        classpath 'net.minecraftforge:propatcher:1.4.0'
     }
 }
 
 plugins {
     id 'de.undercouch.download'
-    id 'uk.jamierocks.propatcher' version '1.3.2' apply false
+    // id 'uk.jamierocks.propatcher' version '1.3.2' apply false
 }
 
 import net.minecraftforge.mcpconfig.tasks.*
@@ -93,7 +94,7 @@ subprojects {
         ENCODING = CONFIG.get('encoding', 'UTF-8')
         FERNFLOWER = Utils.readConfig(CONFIG, 'fernflower', [:])        
         MERGETOOL = Utils.readConfig(CONFIG, 'merge', [
-            version: 'net.minecraftforge:mergetool:1.0.4:fatjar',
+            version: 'net.minecraftforge:mergetool:1.1.2:fatjar',
             args: ["--client", "{client}", "--server", "{server}", "--ann", "{version}", "--output", "{output}"]
         ])
         RENAMETOOL = Utils.readConfig(CONFIG, 'rename', [
@@ -108,6 +109,8 @@ subprojects {
         if (CONFIG.containsKey('mcinjector'))
             MCINJECTOR = Utils.readConfig(CONFIG, 'mcinjector', [])
     }
+
+    java.toolchain.languageVersion = JavaLanguageVersion.of(JAVA_TARGET)
 
     task downloadJson(type: Download, dependsOn: rootProject.downloadVersionManifest) {
         inputs.file rootProject.downloadVersionManifest.dest
@@ -259,7 +262,7 @@ subprojects {
         expand([version: project.name])
     }
 
-    task extractNatives(type: ExtractNatives, dependsOn: [downloadJson, downloadLibraries]) {
+    task extractNatives(type: ExtractNatives, dependsOn: [downloadJson, downloadLibraries, downloadFernflower, downloadMergeTool, downloadRenameTool]) {
         meta downloadJson.dest
         cache file(PATH_CACHED_LIBRARIES)
         dest file(PATH_NATIVES)
@@ -297,11 +300,11 @@ subprojects {
         }
         decompileAll.dependsOn(child.decompile)
         
-        child.pkgs = task "create${child.Name}PackageInfos"(type: MakePackageInfos, dependsOn: child.decompile) {
-            input = child.decompile.dest
-            template = PATH_INJECT_TEMPLATE.exists() ? PATH_INJECT_TEMPLATE : null
-            dest = file(PATH_CACHED_VERSION + side + '.pkgs.jar')
-        }
+        // child.pkgs = task "create${child.Name}PackageInfos"(type: MakePackageInfos, dependsOn: child.decompile) {
+        //     input = child.decompile.dest
+        //     template = PATH_INJECT_TEMPLATE.exists() ? PATH_INJECT_TEMPLATE : null
+        //     dest = file(PATH_CACHED_VERSION + side + '.pkgs.jar')
+        // }
     }
     
     if (MERGE_PATCHES) {
@@ -315,8 +318,8 @@ subprojects {
             sides.joined.slimsrc = joinedOut = file(PATH_CACHED_VERSION + 'joined.decompile.slim.jar')
         }
         
-        task projectSharedReset(type: ResetSourcesTask, dependsOn: deduplicateSources) {
-            root deduplicateSources.duplicates
+        task projectSharedReset(type: ResetSourcesTask, dependsOn: [deduplicateSources, projectRoot]) {
+            rootZip deduplicateSources.duplicates
             target project.file('projects/shared')
         }
         task projectSharedApplyPatches(type: ApplyPatchesTask, dependsOn: projectSharedReset) {
@@ -324,7 +327,7 @@ subprojects {
             patches project.file('patches/shared')
         }
         task projectSharedMakePatches(type: MakePatchesTask, dependsOn: deduplicateSources) {
-            root deduplicateSources.duplicates
+            rootZip deduplicateSources.duplicates
             target projectSharedApplyPatches.target
             patches projectSharedApplyPatches.patches
         }
@@ -345,7 +348,7 @@ subprojects {
         }
         projectDeleteAll.dependsOn(child.delete)
         
-        child.project = task "project${child.Name}"(type: CreateProjectTemplate, dependsOn: [projectRoot, child.extra, child.decompile, child.pkgs] +
+        child.project = task "project${child.Name}"(type: CreateProjectTemplate, dependsOn: [projectRoot, child.extra, child.decompile/*, child.pkgs*/] +
                 (child.jsonlibs ? [downloadJson, extractNatives] : []) +
                 (child.assets ? [downloadAssets] : [])
         ) {
@@ -365,14 +368,18 @@ subprojects {
         }
         projectAll.dependsOn(child.project)
 
-        child.resetPkgs = task "project${child.Name}ResetPackages"(type: ResetSourcesTask, dependsOn: child.pkgs) {
+        // child.resetPkgs = task "project${child.Name}ResetPackages"(type: ResetSourcesTask, dependsOn: child.pkgs) {
+        //     mustRunAfter child.project
+        //     rootZip child.pkgs.dest
+        //     target new File(project_dir, 'src/pkginfo/java')
+        // }
+        child.reset = task "project${child.Name}Reset"(type: ResetSourcesTask, dependsOn: [child.project, child.decompile] + (MERGE_PATCHES ? [projectSharedReset] : [])) {
             mustRunAfter child.project
-            root child.pkgs.dest
-            target new File(project_dir, 'src/pkginfo/java')
-        }
-        child.reset = task "project${child.Name}Reset"(type: ResetSourcesTask, dependsOn: [child.resetPkgs, child.project, child.decompile] + (MERGE_PATCHES ? [projectSharedReset] : [])) {
-            mustRunAfter child.project
-            root MERGE_PATCHES ? child.slimsrc : child.decompile.dest
+            if (MERGE_PATCHES) {
+                rootZip child.slimsrc
+            } else {
+                rootDir child.decompile.dest
+            }
             target new File(project_dir, 'src/main/java')
         }
         projectResetAll.dependsOn(child.reset)
@@ -384,7 +391,11 @@ subprojects {
         projectApplyAll.dependsOn(child.apply)
 
         child.makePatches = task "project${child.Name}MakePatches"(type: MakePatchesTask, dependsOn: MERGE_PATCHES ? [deduplicateSources, projectSharedMakePatches] : [child.decompile]) {
-            root MERGE_PATCHES ? child.slimsrc : child.decompile.dest
+            if (MERGE_PATCHES) {
+                rootZip child.slimsrc
+            } else {
+                rootDir child.decompile.dest
+            }
             target new File(project_dir, 'src/main/java')
             patches patches_dir
         }

@@ -39,7 +39,7 @@ public class ExtractAPI extends SingleFileOutput {
                         def methods = [:] as TreeMap
                         
                         def cr = new ClassReader(lin)
-                        cr.accept(new ClassVisitor(Opcodes.ASM8) {
+                        cr.accept(new ClassVisitor(Opcodes.ASM9) {
                             @Override
                             public void visit(int version, int access, String name, String signature, String superName, String[] interfaces) {
                                 if ((access & BAD_ACCESS) == 0) {
