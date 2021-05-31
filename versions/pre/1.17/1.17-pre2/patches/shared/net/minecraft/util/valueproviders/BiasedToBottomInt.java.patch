@@ -1,0 +1,11 @@
+--- a/net/minecraft/util/valueproviders/BiasedToBottomInt.java
++++ b/net/minecraft/util/valueproviders/BiasedToBottomInt.java
+@@ -7,7 +7,7 @@
+ import java.util.function.Function;
+ 
+ public class BiasedToBottomInt extends IntProvider {
+-   public static final Codec<BiasedToBottomInt> f_146358_ = RecordCodecBuilder.create((p_146372_) -> {
++   public static final Codec<BiasedToBottomInt> f_146358_ = RecordCodecBuilder.<BiasedToBottomInt>create((p_146372_) -> {
+       return p_146372_.group(Codec.INT.fieldOf("min_inclusive").forGetter((p_146380_) -> {
+          return p_146380_.f_146359_;
+       }), Codec.INT.fieldOf("max_inclusive").forGetter((p_146377_) -> {

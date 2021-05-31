@@ -1,0 +1,20 @@
+--- a/net/minecraft/client/gui/Gui.java
++++ b/net/minecraft/client/gui/Gui.java
+@@ -584,7 +584,7 @@
+       this.f_92986_.m_91307_().m_7238_();
+       if (this.f_92986_.f_91074_.f_36078_ > 0) {
+          this.f_92986_.m_91307_().m_6180_("expLevel");
+-         String s = this.f_92986_.f_91074_.f_36078_.makeConcatWithConstants<invokedynamic>(this.f_92986_.f_91074_.f_36078_);
++         String s = "" + this.f_92986_.f_91074_.f_36078_;
+          int i1 = (this.f_92977_ - this.m_93082_().m_92895_(s)) / 2;
+          int j1 = this.f_92978_ - 31 - 4;
+          this.m_93082_().m_92883_(p_93072_, s, (float)(i1 + 1), (float)j1, 0);
+@@ -680,7 +680,7 @@
+          ++l;
+          Score score1 = pair.getFirst();
+          Component component2 = pair.getSecond();
+-         String s = ChatFormatting.RED + score1.m_83400_();
++         String s = ChatFormatting.RED.toString() + score1.m_83400_();
+          int k1 = j2 - l * 9;
+          int l1 = this.f_92977_ - 3 + 2;
+          m_93172_(p_93037_, l2 - 2, k1, l1, k1 + 9, i1);

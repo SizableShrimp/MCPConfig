@@ -1,0 +1,11 @@
+--- a/net/minecraft/client/renderer/item/package-info.java
++++ b/net/minecraft/client/renderer/item/package-info.java
+@@ -1,7 +1,7 @@
+ @ParametersAreNonnullByDefault
+ @MethodsReturnNonnullByDefault
+ @FieldsAreNonnullByDefault
+-@OnlyIn(Dist.CLIENT)
++ 
+ package net.minecraft.client.renderer.item;
+ 
+ import javax.annotation.ParametersAreNonnullByDefault;

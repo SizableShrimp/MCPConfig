@@ -1,0 +1,11 @@
+--- a/net/minecraft/util/datafix/fixes/ChunkPalettedStorageFix.java
++++ b/net/minecraft/util/datafix/fixes/ChunkPalettedStorageFix.java
+@@ -147,7 +147,7 @@
+       p_15078_.put(p_15079_ + "west", BlockStateData.m_14956_("{Name:'minecraft:" + p_15080_ + "_wall_" + p_15081_ + "',Properties:{facing:'west'}}"));
+ 
+       for(int i = 0; i < 16; ++i) {
+-         p_15078_.put(p_15079_ + i, BlockStateData.m_14956_("{Name:'minecraft:" + p_15080_ + "_" + p_15081_ + "',Properties:{rotation:'" + i + "'}}"));
++         p_15078_.put("" + p_15079_ + i, BlockStateData.m_14956_("{Name:'minecraft:" + p_15080_ + "_" + p_15081_ + "',Properties:{rotation:'" + i + "'}}"));
+       }
+ 
+    }
