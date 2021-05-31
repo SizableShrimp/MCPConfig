@@ -27,7 +27,7 @@
        if (p_158899_ <= 0) {
           throw new IllegalArgumentException("Bound must be positive");
        } else if ((p_158899_ & p_158899_ - 1) == 0) {
-@@ -57,29 +57,29 @@
+@@ -57,29 +57,48 @@
        }
     }
  
@@ -58,7 +58,27 @@
     }
  
 -   public double m_142173_() {
-+   public double nextGuassian() {
-       // $FF: Couldn't be decompiled
+-      // $FF: Couldn't be decompiled
++   public double nextGaussian() {
++      if (this.f_158888_) {
++         this.f_158888_ = false;
++         return this.f_158887_;
++      } else {
++         double var1;
++         double var3;
++         double var5;
++         do {
++            do {
++               var1 = 2.0D * this.nextDouble() - 1.0D;
++                  var3 = 2.0D * this.nextDouble() - 1.0D;
++                  var5 = net.minecraft.util.Mth.m_144951_(var1) + Mth.m_144951_(var3);
++               } while(var5 >= 1.0D);
++         } while(var5 == 0.0D);
++
++         double var7 = Math.sqrt(-2.0D * Math.log(var5) / var5);
++         this.f_158887_ = var3 * var7;
++         this.f_158888_ = true;
++         return var1 * var7;
     }
  }
++}

@@ -1,0 +1,17 @@
+--- a/net/minecraft/server/rcon/thread/QueryThreadGs4.java
++++ b/net/minecraft/server/rcon/thread/QueryThreadGs4.java
+@@ -159,11 +159,11 @@
+          this.f_11536_.m_11474_("map");
+          this.f_11536_.m_11474_(this.f_11530_);
+          this.f_11536_.m_11474_("numplayers");
+-         this.f_11536_.m_11474_(this.f_11538_.m_7416_().makeConcatWithConstants<invokedynamic>(this.f_11538_.m_7416_()));
++         this.f_11536_.m_11474_("" + this.f_11538_.m_7416_());
+          this.f_11536_.m_11474_("maxplayers");
+-         this.f_11536_.m_11474_(this.f_11528_.makeConcatWithConstants<invokedynamic>(this.f_11528_));
++         this.f_11536_.m_11474_("" + this.f_11528_);
+          this.f_11536_.m_11474_("hostport");
+-         this.f_11536_.m_11474_(this.f_11527_.makeConcatWithConstants<invokedynamic>(this.f_11527_));
++         this.f_11536_.m_11474_("" + this.f_11527_);
+          this.f_11536_.m_11474_("hostip");
+          this.f_11536_.m_11474_(this.f_11533_);
+          this.f_11536_.m_11472_(0);

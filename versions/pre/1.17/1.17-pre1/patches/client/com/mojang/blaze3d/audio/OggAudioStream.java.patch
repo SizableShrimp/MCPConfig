@@ -1,20 +1,27 @@
 --- a/com/mojang/blaze3d/audio/OggAudioStream.java
 +++ b/com/mojang/blaze3d/audio/OggAudioStream.java
-@@ -116,7 +116,7 @@
+@@ -116,23 +116,25 @@
        } else {
           MemoryStack memorystack = MemoryStack.stackPush();
  
 -         int l;
+-         label79: {
 +         boolean flag1;
-          label79: {
++         label79:
++         {
              boolean flag;
-             label80: {
-@@ -126,13 +126,13 @@
+-            label80: {
++            label80:
++            {
+                try {
+                   PointerBuffer pointerbuffer = memorystack.mallocPointer(1);
+                   IntBuffer intbuffer = memorystack.mallocInt(1);
                    IntBuffer intbuffer1 = memorystack.mallocInt(1);
  
-                   while(true) {
+-                  while(true) {
 -                     l = STBVorbis.stb_vorbis_decode_frame_pushdata(this.f_83746_, this.f_83749_, intbuffer, pointerbuffer, intbuffer1);
 -                     this.f_83749_.position(this.f_83749_.position() + l);
++                  while (true) {
 +                     int z = STBVorbis.stb_vorbis_decode_frame_pushdata(this.f_83746_, this.f_83749_, intbuffer, pointerbuffer, intbuffer1);
 +                     this.f_83749_.position(this.f_83749_.position() + z);
                       int i = STBVorbis.stb_vorbis_get_error(this.f_83746_);
@@ -26,7 +33,7 @@
                             break label79;
                          }
                       } else {
-@@ -190,7 +190,7 @@
+@@ -190,7 +192,7 @@
              memorystack.close();
           }
  
