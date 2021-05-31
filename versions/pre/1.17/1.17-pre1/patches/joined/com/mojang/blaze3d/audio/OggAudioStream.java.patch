@@ -1,14 +1,6 @@
 --- a/com/mojang/blaze3d/audio/OggAudioStream.java
 +++ b/com/mojang/blaze3d/audio/OggAudioStream.java
-@@ -20,7 +20,6 @@
- import org.lwjgl.system.MemoryStack;
- import org.lwjgl.system.MemoryUtil;
- 
--@OnlyIn(Dist.CLIENT)
- public class OggAudioStream implements AudioStream {
-    private static final int f_166130_ = 8192;
-    private long f_83746_;
-@@ -119,7 +118,7 @@
+@@ -119,7 +119,7 @@
        } else {
           MemoryStack memorystack = MemoryStack.stackPush();
  
@@ -17,7 +9,7 @@
           label79: {
              boolean flag;
              label80: {
-@@ -129,13 +128,13 @@
+@@ -129,13 +129,13 @@
                    IntBuffer intbuffer1 = memorystack.mallocInt(1);
  
                    while(true) {
@@ -33,7 +25,7 @@
                             break label79;
                          }
                       } else {
-@@ -193,7 +192,7 @@
+@@ -193,7 +193,7 @@
              memorystack.close();
           }
  
