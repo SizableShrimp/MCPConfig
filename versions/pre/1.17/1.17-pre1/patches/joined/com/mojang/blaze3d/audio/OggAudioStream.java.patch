@@ -1,0 +1,62 @@
+--- a/com/mojang/blaze3d/audio/OggAudioStream.java
++++ b/com/mojang/blaze3d/audio/OggAudioStream.java
+@@ -10,8 +10,6 @@
+ import javax.sound.sampled.AudioFormat;
+ import net.minecraft.client.sounds.AudioStream;
+ import net.minecraft.util.Mth;
+-import net.minecraftforge.api.distmarker.Dist;
+-import net.minecraftforge.api.distmarker.OnlyIn;
+ import org.lwjgl.BufferUtils;
+ import org.lwjgl.PointerBuffer;
+ import org.lwjgl.stb.STBVorbis;
+@@ -20,7 +18,6 @@
+ import org.lwjgl.system.MemoryStack;
+ import org.lwjgl.system.MemoryUtil;
+ 
+-@OnlyIn(Dist.CLIENT)
+ public class OggAudioStream implements AudioStream {
+    private static final int f_166130_ = 8192;
+    private long f_83746_;
+@@ -119,7 +116,7 @@
+       } else {
+          MemoryStack memorystack = MemoryStack.stackPush();
+ 
+-         int l;
++            boolean flag1;
+          label79: {
+             boolean flag;
+             label80: {
+@@ -129,13 +126,13 @@
+                   IntBuffer intbuffer1 = memorystack.mallocInt(1);
+ 
+                   while(true) {
+-                     l = STBVorbis.stb_vorbis_decode_frame_pushdata(this.f_83746_, this.f_83749_, intbuffer, pointerbuffer, intbuffer1);
+-                     this.f_83749_.position(this.f_83749_.position() + l);
++                            int j = STBVorbis.stb_vorbis_decode_frame_pushdata(this.f_83746_, this.f_83749_, intbuffer, pointerbuffer, intbuffer1);
++                            this.f_83749_.position(this.f_83749_.position() + j);
+                      int i = STBVorbis.stb_vorbis_get_error(this.f_83746_);
+                      if (i == 1) {
+                         this.m_83767_();
+                         if (!this.m_83765_()) {
+-                           l = 0;
++                                    flag1 = false;
+                            break label79;
+                         }
+                      } else {
+@@ -193,7 +190,7 @@
+             memorystack.close();
+          }
+ 
+-         return (boolean)l;
++            return flag1;
+       }
+    }
+ 
+@@ -244,7 +241,6 @@
+       return oggaudiostream$outputconcat.m_83774_();
+    }
+ 
+-   @OnlyIn(Dist.CLIENT)
+    static class OutputConcat {
+       private final List<ByteBuffer> f_83768_ = Lists.newArrayList();
+       private final int f_83769_;
