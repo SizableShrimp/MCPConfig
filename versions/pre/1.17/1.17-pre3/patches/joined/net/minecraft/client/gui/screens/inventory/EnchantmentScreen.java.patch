@@ -1,0 +1,11 @@
+--- a/net/minecraft/client/gui/screens/inventory/EnchantmentScreen.java
++++ b/net/minecraft/client/gui/screens/inventory/EnchantmentScreen.java
+@@ -147,7 +147,7 @@
+          if (l1 == 0) {
+             this.m_93228_(p_98762_, j1, j + 14 + 19 * i1, 0, 185, 108, 19);
+          } else {
+-            String s = l1.makeConcatWithConstants<invokedynamic>(l1);
++            String s = "" + l1;
+             int i2 = 86 - this.f_96547_.m_92895_(s);
+             FormattedText formattedtext = EnchantmentNames.m_98734_().m_98737_(this.f_96547_, i2);
+             int j2 = 6839882;

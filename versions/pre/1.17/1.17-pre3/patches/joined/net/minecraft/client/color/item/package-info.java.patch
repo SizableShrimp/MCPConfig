@@ -1,0 +1,10 @@
+--- a/net/minecraft/client/color/item/package-info.java
++++ b/net/minecraft/client/color/item/package-info.java
+@@ -1,6 +1,6 @@
+ @ParametersAreNonnullByDefault
+ @MethodsReturnNonnullByDefault
+-@OnlyIn(Dist.CLIENT)
++ 
+ package net.minecraft.client.color.item;
+ 
+ import javax.annotation.ParametersAreNonnullByDefault;

@@ -1,0 +1,20 @@
+--- a/net/minecraft/world/level/levelgen/feature/NetherFortressFeature.java
++++ b/net/minecraft/world/level/levelgen/feature/NetherFortressFeature.java
+@@ -26,7 +26,7 @@
+    }
+ 
+    protected boolean m_142290_(ChunkGenerator p_160080_, BiomeSource p_160081_, long p_160082_, WorldgenRandom p_160083_, ChunkPos p_160084_, Biome p_160085_, ChunkPos p_160086_, NoneFeatureConfiguration p_160087_, LevelHeightAccessor p_160088_) {
+-      return p_160083_.m_142421_(5) < 2;
++      return p_160083_.nextInt(5) < 2;
+    }
+ 
+    public StructureFeature.StructureStartFactory<NoneFeatureConfiguration> m_6258_() {
+@@ -49,7 +49,7 @@
+          List<StructurePiece> list = netherbridgepieces$startpiece.f_72022_;
+ 
+          while(!list.isEmpty()) {
+-            int i = this.f_73564_.m_142421_(list.size());
++            int i = this.f_73564_.nextInt(list.size());
+             StructurePiece structurepiece = list.remove(i);
+             structurepiece.m_142537_(netherbridgepieces$startpiece, this, this.f_73564_);
+          }

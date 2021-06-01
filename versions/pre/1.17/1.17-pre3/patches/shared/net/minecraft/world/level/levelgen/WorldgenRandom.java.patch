@@ -1,0 +1,66 @@
+--- a/net/minecraft/world/level/levelgen/WorldgenRandom.java
++++ b/net/minecraft/world/level/levelgen/WorldgenRandom.java
+@@ -23,47 +23,47 @@
+ 
+    public long m_64682_(int p_64683_, int p_64684_) {
+       long i = (long)p_64683_ * 341873128712L + (long)p_64684_ * 132897987541L;
+-      this.m_142714_(i);
++      this.setSeed(i);
+       return i;
+    }
+ 
+    public long m_64690_(long p_64691_, int p_64692_, int p_64693_) {
+-      this.m_142714_(p_64691_);
+-      long i = this.m_142583_() | 1L;
+-      long j = this.m_142583_() | 1L;
++      this.setSeed(p_64691_);
++      long i = this.nextLong() | 1L;
++      long j = this.nextLong() | 1L;
+       long k = (long)p_64692_ * i + (long)p_64693_ * j ^ p_64691_;
+-      this.m_142714_(k);
++      this.setSeed(k);
+       return k;
+    }
+ 
+    public long m_64699_(long p_64700_, int p_64701_, int p_64702_) {
+       long i = p_64700_ + (long)p_64701_ + (long)(10000 * p_64702_);
+-      this.m_142714_(i);
++      this.setSeed(i);
+       return i;
+    }
+ 
+    public long m_64703_(long p_64704_, int p_64705_, int p_64706_) {
+-      this.m_142714_(p_64704_);
+-      long i = this.m_142583_();
+-      long j = this.m_142583_();
++      this.setSeed(p_64704_);
++      long i = this.nextLong();
++      long j = this.nextLong();
+       long k = (long)p_64705_ * i ^ (long)p_64706_ * j ^ p_64704_;
+-      this.m_142714_(k);
++      this.setSeed(k);
+       return k;
+    }
+ 
+    public long m_158961_(long p_158962_, int p_158963_, int p_158964_, int p_158965_) {
+-      this.m_142714_(p_158962_);
+-      long i = this.m_142583_();
+-      long j = this.m_142583_();
+-      long k = this.m_142583_();
++      this.setSeed(p_158962_);
++      long i = this.nextLong();
++      long j = this.nextLong();
++      long k = this.nextLong();
+       long l = (long)p_158963_ * i ^ (long)p_158964_ * j ^ (long)p_158965_ * k ^ p_158962_;
+-      this.m_142714_(l);
++      this.setSeed(l);
+       return l;
+    }
+ 
+    public long m_64694_(long p_64695_, int p_64696_, int p_64697_, int p_64698_) {
+       long i = (long)p_64696_ * 341873128712L + (long)p_64697_ * 132897987541L + p_64695_ + (long)p_64698_;
+-      this.m_142714_(i);
++      this.setSeed(i);
+       return i;
+    }
+ 

@@ -1,0 +1,11 @@
+--- a/com/mojang/realmsclient/Unit.java
++++ b/com/mojang/realmsclient/Unit.java
+@@ -34,7 +34,7 @@
+          return p_86946_ + " B";
+       } else {
+          int j = (int)(Math.log((double)p_86946_) / Math.log(1024.0D));
+-         String s = "KMGTPE".charAt(j - 1).makeConcatWithConstants<invokedynamic>("KMGTPE".charAt(j - 1));
++         String s = "" + "KMGTPE".charAt(j - 1);
+          return String.format(Locale.ROOT, "%.1f %sB", (double)p_86946_ / Math.pow(1024.0D, (double)j), s);
+       }
+    }

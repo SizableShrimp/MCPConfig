@@ -1,0 +1,11 @@
+--- a/net/minecraft/util/HttpUtil.java
++++ b/net/minecraft/util/HttpUtil.java
+@@ -78,7 +78,7 @@
+          HttpURLConnection httpurlconnection = (HttpURLConnection)p_144806_.openConnection(p_144809_);
+          httpurlconnection.setRequestMethod("POST");
+          httpurlconnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+-         httpurlconnection.setRequestProperty("Content-Length", p_144807_.getBytes().length.makeConcatWithConstants<invokedynamic>(p_144807_.getBytes().length));
++         httpurlconnection.setRequestProperty("Content-Length", "" + p_144807_.getBytes().length);
+          httpurlconnection.setRequestProperty("Content-Language", "en-US");
+          httpurlconnection.setUseCaches(false);
+          httpurlconnection.setDoInput(true);

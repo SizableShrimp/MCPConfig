@@ -1,0 +1,11 @@
+--- a/net/minecraft/client/renderer/debug/BrainDebugRenderer.java
++++ b/net/minecraft/client/renderer/debug/BrainDebugRenderer.java
+@@ -164,7 +164,7 @@
+       RenderSystem.m_69478_();
+       RenderSystem.m_69453_();
+       DebugRenderer.m_113463_(p_113244_, 0.05F, 0.2F, 0.2F, 1.0F, 0.3F);
+-      m_113257_(p_113245_.makeConcatWithConstants<invokedynamic>(p_113245_), p_113244_, 0, -256);
++      m_113257_("" + p_113245_, p_113244_, 0, -256);
+       m_113257_("Ghost POI", p_113244_, 1, -65536);
+    }
+ 

@@ -1,0 +1,11 @@
+--- a/net/minecraft/client/gui/screens/WinScreen.java
++++ b/net/minecraft/client/gui/screens/WinScreen.java
+@@ -41,7 +41,7 @@
+    private static final ResourceLocation f_96866_ = new ResourceLocation("textures/misc/vignette.png");
+    private static final FormattedText f_169463_ = (new TextComponent("============")).m_130940_(ChatFormatting.WHITE);
+    private static final String f_169464_ = "           ";
+-   private static final String f_96867_ = ChatFormatting.WHITE + ChatFormatting.OBFUSCATED + ChatFormatting.GREEN + ChatFormatting.AQUA;
++   private static final String f_96867_ = ChatFormatting.WHITE.toString() + ChatFormatting.OBFUSCATED + ChatFormatting.GREEN + ChatFormatting.AQUA;
+    private static final int f_169465_ = 274;
+    private static final float f_169466_ = 5.0F;
+    private final boolean f_96868_;
