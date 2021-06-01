@@ -1,0 +1,10 @@
+--- a/net/minecraft/client/gui/font/package-info.java
++++ b/net/minecraft/client/gui/font/package-info.java
+@@ -1,6 +1,6 @@
+ @ParametersAreNonnullByDefault
+ @MethodsReturnNonnullByDefault
+-@OnlyIn(Dist.CLIENT)
++ 
+ package net.minecraft.client.gui.font;
+ 
+ import javax.annotation.ParametersAreNonnullByDefault;

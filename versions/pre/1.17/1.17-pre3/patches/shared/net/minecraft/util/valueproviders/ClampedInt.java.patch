@@ -1,0 +1,11 @@
+--- a/net/minecraft/util/valueproviders/ClampedInt.java
++++ b/net/minecraft/util/valueproviders/ClampedInt.java
+@@ -8,7 +8,7 @@
+ import net.minecraft.util.Mth;
+ 
+ public class ClampedInt extends IntProvider {
+-   public static final Codec<ClampedInt> f_146382_ = RecordCodecBuilder.create((p_146399_) -> {
++   public static final Codec<ClampedInt> f_146382_ = RecordCodecBuilder.<ClampedInt>create((p_146399_) -> {
+       return p_146399_.group(IntProvider.f_146530_.fieldOf("source").forGetter((p_146409_) -> {
+          return p_146409_.f_146383_;
+       }), Codec.INT.fieldOf("min_inclusive").forGetter((p_146407_) -> {

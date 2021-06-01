@@ -1,0 +1,18 @@
+--- a/net/minecraft/world/level/levelgen/feature/StructureFeature.java
++++ b/net/minecraft/world/level/levelgen/feature/StructureFeature.java
+@@ -212,11 +212,11 @@
+       int i1;
+       int j1;
+       if (this.m_5910_()) {
+-         i1 = p_67070_.m_142421_(i - j);
+-         j1 = p_67070_.m_142421_(i - j);
++         i1 = p_67070_.nextInt(i - j);
++         j1 = p_67070_.nextInt(i - j);
+       } else {
+-         i1 = (p_67070_.m_142421_(i - j) + p_67070_.m_142421_(i - j)) / 2;
+-         j1 = (p_67070_.m_142421_(i - j) + p_67070_.m_142421_(i - j)) / 2;
++         i1 = (p_67070_.nextInt(i - j) + p_67070_.nextInt(i - j)) / 2;
++         j1 = (p_67070_.nextInt(i - j) + p_67070_.nextInt(i - j)) / 2;
+       }
+ 
+       return new ChunkPos(k * i + i1, l * i + j1);

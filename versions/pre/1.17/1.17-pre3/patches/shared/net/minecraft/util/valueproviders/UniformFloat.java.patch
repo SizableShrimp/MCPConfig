@@ -1,0 +1,11 @@
+--- a/net/minecraft/util/valueproviders/UniformFloat.java
++++ b/net/minecraft/util/valueproviders/UniformFloat.java
+@@ -8,7 +8,7 @@
+ import net.minecraft.util.Mth;
+ 
+ public class UniformFloat extends FloatProvider {
+-   public static final Codec<UniformFloat> f_146589_ = RecordCodecBuilder.create((p_146600_) -> {
++   public static final Codec<UniformFloat> f_146589_ = RecordCodecBuilder.<UniformFloat>create((p_146600_) -> {
+       return p_146600_.group(Codec.FLOAT.fieldOf("min_inclusive").forGetter((p_146611_) -> {
+          return p_146611_.f_146590_;
+       }), Codec.FLOAT.fieldOf("max_exclusive").forGetter((p_146608_) -> {

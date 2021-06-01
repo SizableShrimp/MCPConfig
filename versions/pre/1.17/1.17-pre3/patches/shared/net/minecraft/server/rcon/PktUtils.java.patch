@@ -1,0 +1,10 @@
+--- a/net/minecraft/server/rcon/PktUtils.java
++++ b/net/minecraft/server/rcon/PktUtils.java
+@@ -29,6 +29,6 @@
+    }
+ 
+    public static String m_11483_(byte p_11484_) {
+-      return f_11481_[(p_11484_ & 240) >>> 4] + f_11481_[p_11484_ & 15];
++      return "" + f_11481_[(p_11484_ & 240) >>> 4] + f_11481_[p_11484_ & 15];
+    }
+ }

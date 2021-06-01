@@ -1,0 +1,11 @@
+--- a/net/minecraft/world/level/levelgen/feature/MineshaftFeature.java
++++ b/net/minecraft/world/level/levelgen/feature/MineshaftFeature.java
+@@ -29,7 +29,7 @@
+    protected boolean m_142290_(ChunkGenerator p_160021_, BiomeSource p_160022_, long p_160023_, WorldgenRandom p_160024_, ChunkPos p_160025_, Biome p_160026_, ChunkPos p_160027_, MineshaftConfiguration p_160028_, LevelHeightAccessor p_160029_) {
+       p_160024_.m_64703_(p_160023_, p_160025_.f_45578_, p_160025_.f_45579_);
+       double d0 = (double)p_160028_.f_67781_;
+-      return p_160024_.m_142055_() < d0;
++      return p_160024_.nextDouble() < d0;
+    }
+ 
+    public StructureFeature.StructureStartFactory<MineshaftConfiguration> m_6258_() {

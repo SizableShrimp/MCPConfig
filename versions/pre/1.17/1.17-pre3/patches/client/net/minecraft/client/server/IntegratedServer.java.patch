@@ -1,0 +1,11 @@
+--- a/net/minecraft/client/server/IntegratedServer.java
++++ b/net/minecraft/client/server/IntegratedServer.java
+@@ -159,7 +159,7 @@
+          this.m_129919_().m_9711_((InetAddress)null, p_120043_);
+          f_120014_.info("Started serving on {}", (int)p_120043_);
+          this.f_120017_ = p_120043_;
+-         this.f_120018_ = new LanServerPinger(this.m_129916_(), p_120043_.makeConcatWithConstants<invokedynamic>(p_120043_));
++         this.f_120018_ = new LanServerPinger(this.m_129916_(), "" + p_120043_);
+          this.f_120018_.start();
+          this.f_174966_ = p_120041_;
+          this.m_6846_().m_11284_(p_120042_);

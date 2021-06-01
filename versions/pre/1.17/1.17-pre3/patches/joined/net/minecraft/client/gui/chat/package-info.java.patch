@@ -1,0 +1,10 @@
+--- a/net/minecraft/client/gui/chat/package-info.java
++++ b/net/minecraft/client/gui/chat/package-info.java
+@@ -1,6 +1,6 @@
+ @ParametersAreNonnullByDefault
+ @MethodsReturnNonnullByDefault
+-@OnlyIn(Dist.CLIENT)
++ 
+ package net.minecraft.client.gui.chat;
+ 
+ import javax.annotation.ParametersAreNonnullByDefault;
