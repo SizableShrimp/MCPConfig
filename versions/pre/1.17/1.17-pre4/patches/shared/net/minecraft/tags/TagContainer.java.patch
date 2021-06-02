@@ -1,0 +1,25 @@
+--- a/net/minecraft/tags/TagContainer.java
++++ b/net/minecraft/tags/TagContainer.java
+@@ -26,11 +26,11 @@
+ 
+    @Nullable
+    private <T> TagCollection<T> m_144470_(ResourceKey<? extends Registry<T>> p_144471_) {
+-      return this.f_144432_.get(p_144471_);
++      return (TagCollection<T>)this.f_144432_.get(p_144471_);
+    }
+ 
+    public <T> TagCollection<T> m_144451_(ResourceKey<? extends Registry<T>> p_144452_) {
+-      return this.f_144432_.getOrDefault(p_144452_, TagCollection.m_13410_());
++      return (TagCollection<T>)this.f_144432_.getOrDefault(p_144452_, TagCollection.m_13410_());
+    }
+ 
+    public <T, E extends Exception> Tag<T> m_144457_(ResourceKey<? extends Registry<T>> p_144458_, ResourceLocation p_144459_, Function<ResourceLocation, E> p_144460_) throws E {
+@@ -68,7 +68,7 @@
+    }
+ 
+    private static <T> void m_144437_(TagContainer.CollectionConsumer p_144438_, ResourceKey<? extends Registry<?>> p_144439_, TagCollection<?> p_144440_) {
+-      p_144438_.m_142574_(p_144439_, p_144440_);
++      p_144438_.m_142574_((ResourceKey<? extends Registry<T>>)p_144439_, (TagCollection<T>)p_144440_);
+    }
+ 
+    public void m_13431_() {

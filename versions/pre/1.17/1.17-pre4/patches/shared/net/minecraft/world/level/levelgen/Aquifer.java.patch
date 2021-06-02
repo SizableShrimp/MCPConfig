@@ -1,0 +1,11 @@
+--- a/net/minecraft/world/level/levelgen/Aquifer.java
++++ b/net/minecraft/world/level/levelgen/Aquifer.java
+@@ -121,7 +121,7 @@
+                            i4 = j4;
+                         } else {
+                            WorldgenRandom worldgenrandom = new WorldgenRandom(Mth.m_14130_(i3, j3 * 3, k3) + 1L);
+-                           i4 = BlockPos.m_121882_(i3 * 16 + worldgenrandom.m_142421_(10), j3 * 12 + worldgenrandom.m_142421_(9), k3 * 16 + worldgenrandom.m_142421_(10));
++                           i4 = BlockPos.m_121882_(i3 * 16 + worldgenrandom.nextInt(10), j3 * 12 + worldgenrandom.nextInt(9), k3 * 16 + worldgenrandom.nextInt(10));
+                            this.f_157999_[l3] = i4;
+                         }
+ 

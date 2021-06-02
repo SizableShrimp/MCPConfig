@@ -1,0 +1,11 @@
+--- a/net/minecraft/world/level/levelgen/feature/BuriedTreasureFeature.java
++++ b/net/minecraft/world/level/levelgen/feature/BuriedTreasureFeature.java
+@@ -23,7 +23,7 @@
+ 
+    protected boolean m_142290_(ChunkGenerator p_159490_, BiomeSource p_159491_, long p_159492_, WorldgenRandom p_159493_, ChunkPos p_159494_, Biome p_159495_, ChunkPos p_159496_, ProbabilityFeatureConfiguration p_159497_, LevelHeightAccessor p_159498_) {
+       p_159493_.m_64694_(p_159492_, p_159494_.f_45578_, p_159494_.f_45579_, 10387320);
+-      return p_159493_.m_142508_() < p_159497_.f_67859_;
++      return p_159493_.nextFloat() < p_159497_.f_67859_;
+    }
+ 
+    public StructureFeature.StructureStartFactory<ProbabilityFeatureConfiguration> m_6258_() {

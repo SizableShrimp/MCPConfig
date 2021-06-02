@@ -1,0 +1,24 @@
+--- a/net/minecraft/world/level/levelgen/synth/ImprovedNoise.java
++++ b/net/minecraft/world/level/levelgen/synth/ImprovedNoise.java
+@@ -11,9 +11,9 @@
+    public final double f_75323_;
+ 
+    public ImprovedNoise(RandomSource p_164307_) {
+-      this.f_75321_ = p_164307_.m_142055_() * 256.0D;
+-      this.f_75322_ = p_164307_.m_142055_() * 256.0D;
+-      this.f_75323_ = p_164307_.m_142055_() * 256.0D;
++      this.f_75321_ = p_164307_.nextDouble() * 256.0D;
++      this.f_75322_ = p_164307_.nextDouble() * 256.0D;
++      this.f_75323_ = p_164307_.nextDouble() * 256.0D;
+       this.f_75324_ = new byte[256];
+ 
+       for(int i = 0; i < 256; ++i) {
+@@ -21,7 +21,7 @@
+       }
+ 
+       for(int k = 0; k < 256; ++k) {
+-         int j = p_164307_.m_142421_(256 - k);
++         int j = p_164307_.nextInt(256 - k);
+          byte b0 = this.f_75324_[k];
+          this.f_75324_[k] = this.f_75324_[k + j];
+          this.f_75324_[k + j] = b0;

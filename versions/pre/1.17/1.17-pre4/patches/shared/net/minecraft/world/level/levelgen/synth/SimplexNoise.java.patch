@@ -1,0 +1,22 @@
+--- a/net/minecraft/world/level/levelgen/synth/SimplexNoise.java
++++ b/net/minecraft/world/level/levelgen/synth/SimplexNoise.java
+@@ -14,15 +14,15 @@
+    public final double f_75456_;
+ 
+    public SimplexNoise(RandomSource p_164399_) {
+-      this.f_75454_ = p_164399_.m_142055_() * 256.0D;
+-      this.f_75455_ = p_164399_.m_142055_() * 256.0D;
+-      this.f_75456_ = p_164399_.m_142055_() * 256.0D;
++      this.f_75454_ = p_164399_.nextDouble() * 256.0D;
++      this.f_75455_ = p_164399_.nextDouble() * 256.0D;
++      this.f_75456_ = p_164399_.nextDouble() * 256.0D;
+ 
+       for(int i = 0; i < 256; this.f_75460_[i] = i++) {
+       }
+ 
+       for(int l = 0; l < 256; ++l) {
+-         int j = p_164399_.m_142421_(256 - l);
++         int j = p_164399_.nextInt(256 - l);
+          int k = this.f_75460_[l];
+          this.f_75460_[l] = this.f_75460_[j + l];
+          this.f_75460_[j + l] = k;

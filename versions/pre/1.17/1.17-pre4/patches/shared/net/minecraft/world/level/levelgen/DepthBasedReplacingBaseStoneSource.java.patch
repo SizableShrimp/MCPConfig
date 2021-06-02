@@ -1,0 +1,11 @@
+--- a/net/minecraft/world/level/levelgen/DepthBasedReplacingBaseStoneSource.java
++++ b/net/minecraft/world/level/levelgen/DepthBasedReplacingBaseStoneSource.java
+@@ -30,7 +30,7 @@
+       } else {
+          double d0 = Mth.m_144913_((double)p_158267_, -8.0D, 0.0D, 1.0D, 0.0D);
+          this.f_158255_.m_158961_(this.f_158256_, p_158266_, p_158267_, p_158268_);
+-         return (double)this.f_158255_.m_142508_() < d0 ? this.f_158258_ : this.f_158257_;
++         return (double)this.f_158255_.nextFloat() < d0 ? this.f_158258_ : this.f_158257_;
+       }
+    }
+ }
