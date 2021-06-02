@@ -1,0 +1,10 @@
+--- a/net/minecraft/world/level/levelgen/feature/BastionFeature.java
++++ b/net/minecraft/world/level/levelgen/feature/BastionFeature.java
+@@ -17,6 +17,6 @@
+    }
+ 
+    protected boolean m_142290_(ChunkGenerator p_159461_, BiomeSource p_159462_, long p_159463_, WorldgenRandom p_159464_, ChunkPos p_159465_, Biome p_159466_, ChunkPos p_159467_, JigsawConfiguration p_159468_, LevelHeightAccessor p_159469_) {
+-      return p_159464_.m_142421_(5) >= 2;
++      return p_159464_.nextInt(5) >= 2;
+    }
+ }

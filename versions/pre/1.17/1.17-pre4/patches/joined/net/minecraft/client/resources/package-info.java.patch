@@ -1,0 +1,11 @@
+--- a/net/minecraft/client/resources/package-info.java
++++ b/net/minecraft/client/resources/package-info.java
+@@ -1,7 +1,7 @@
+ @ParametersAreNonnullByDefault
+ @MethodsReturnNonnullByDefault
+ @FieldsAreNonnullByDefault
+-@OnlyIn(Dist.CLIENT)
++ 
+ package net.minecraft.client.resources;
+ 
+ import javax.annotation.ParametersAreNonnullByDefault;

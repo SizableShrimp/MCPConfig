@@ -1,0 +1,15 @@
+--- a/net/minecraft/world/level/levelgen/feature/PillagerOutpostFeature.java
++++ b/net/minecraft/world/level/levelgen/feature/PillagerOutpostFeature.java
+@@ -27,9 +27,9 @@
+    protected boolean m_142290_(ChunkGenerator p_160197_, BiomeSource p_160198_, long p_160199_, WorldgenRandom p_160200_, ChunkPos p_160201_, Biome p_160202_, ChunkPos p_160203_, JigsawConfiguration p_160204_, LevelHeightAccessor p_160205_) {
+       int i = p_160201_.f_45578_ >> 4;
+       int j = p_160201_.f_45579_ >> 4;
+-      p_160200_.m_142714_((long)(i ^ j << 4) ^ p_160199_);
+-      p_160200_.m_142703_();
+-      if (p_160200_.m_142421_(5) != 0) {
++      p_160200_.setSeed((long)(i ^ j << 4) ^ p_160199_);
++      p_160200_.nextInt();
++      if (p_160200_.nextInt(5) != 0) {
+          return false;
+       } else {
+          return !this.m_160181_(p_160197_, p_160199_, p_160200_, p_160201_);

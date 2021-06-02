@@ -1,0 +1,10 @@
+--- a/com/mojang/realmsclient/dto/package-info.java
++++ b/com/mojang/realmsclient/dto/package-info.java
+@@ -1,6 +1,6 @@
+ @ParametersAreNonnullByDefault
+ @MethodsReturnNonnullByDefault
+-@OnlyIn(Dist.CLIENT)
++ 
+ package com.mojang.realmsclient.dto;
+ 
+ import javax.annotation.ParametersAreNonnullByDefault;

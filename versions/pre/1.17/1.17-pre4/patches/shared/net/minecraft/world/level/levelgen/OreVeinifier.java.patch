@@ -1,0 +1,18 @@
+--- a/net/minecraft/world/level/levelgen/OreVeinifier.java
++++ b/net/minecraft/world/level/levelgen/OreVeinifier.java
+@@ -84,12 +84,12 @@
+       OreVeinifier.VeinType oreveinifier$veintype = this.m_158814_(p_158824_, p_158822_);
+       if (oreveinifier$veintype == null) {
+          return blockstate;
+-      } else if (p_158820_.m_142508_() > 0.7F) {
++      } else if (p_158820_.nextFloat() > 0.7F) {
+          return blockstate;
+       } else if (this.m_158811_(p_158825_, p_158826_)) {
+          double d0 = Mth.m_144850_(Math.abs(p_158824_), 0.5D, (double)0.6F, (double)0.1F, (double)0.3F);
+-         if ((double)p_158820_.m_142508_() < d0 && this.f_158802_.m_75380_((double)p_158821_, (double)p_158822_, (double)p_158823_) > (double)-0.3F) {
+-            return p_158820_.m_142508_() < 0.02F ? oreveinifier$veintype.f_158858_ : oreveinifier$veintype.f_158857_;
++         if ((double)p_158820_.nextFloat() < d0 && this.f_158802_.m_75380_((double)p_158821_, (double)p_158822_, (double)p_158823_) > (double)-0.3F) {
++            return p_158820_.nextFloat() < 0.02F ? oreveinifier$veintype.f_158858_ : oreveinifier$veintype.f_158857_;
+          } else {
+             return oreveinifier$veintype.f_158859_;
+          }

@@ -1,0 +1,55 @@
+--- a/net/minecraft/world/level/levelgen/feature/RuinedPortalFeature.java
++++ b/net/minecraft/world/level/levelgen/feature/RuinedPortalFeature.java
+@@ -118,7 +118,7 @@
+             ruinedportalpiece$properties.f_72737_ = 0.0F;
+          } else if (p_160299_.f_68055_ == RuinedPortalFeature.Type.JUNGLE) {
+             ruinedportalpiece$verticalplacement = RuinedPortalPiece.VerticalPlacement.ON_LAND_SURFACE;
+-            ruinedportalpiece$properties.f_72738_ = this.f_73564_.m_142508_() < 0.5F;
++            ruinedportalpiece$properties.f_72738_ = this.f_73564_.nextFloat() < 0.5F;
+             ruinedportalpiece$properties.f_72737_ = 0.8F;
+             ruinedportalpiece$properties.f_72739_ = true;
+             ruinedportalpiece$properties.f_72740_ = true;
+@@ -128,34 +128,34 @@
+             ruinedportalpiece$properties.f_72737_ = 0.5F;
+             ruinedportalpiece$properties.f_72740_ = true;
+          } else if (p_160299_.f_68055_ == RuinedPortalFeature.Type.MOUNTAIN) {
+-            boolean flag = this.f_73564_.m_142508_() < 0.5F;
++            boolean flag = this.f_73564_.nextFloat() < 0.5F;
+             ruinedportalpiece$verticalplacement = flag ? RuinedPortalPiece.VerticalPlacement.IN_MOUNTAIN : RuinedPortalPiece.VerticalPlacement.ON_LAND_SURFACE;
+-            ruinedportalpiece$properties.f_72738_ = flag || this.f_73564_.m_142508_() < 0.5F;
++            ruinedportalpiece$properties.f_72738_ = flag || this.f_73564_.nextFloat() < 0.5F;
+          } else if (p_160299_.f_68055_ == RuinedPortalFeature.Type.OCEAN) {
+             ruinedportalpiece$verticalplacement = RuinedPortalPiece.VerticalPlacement.ON_OCEAN_FLOOR;
+             ruinedportalpiece$properties.f_72738_ = false;
+             ruinedportalpiece$properties.f_72737_ = 0.8F;
+          } else if (p_160299_.f_68055_ == RuinedPortalFeature.Type.NETHER) {
+             ruinedportalpiece$verticalplacement = RuinedPortalPiece.VerticalPlacement.IN_NETHER;
+-            ruinedportalpiece$properties.f_72738_ = this.f_73564_.m_142508_() < 0.5F;
++            ruinedportalpiece$properties.f_72738_ = this.f_73564_.nextFloat() < 0.5F;
+             ruinedportalpiece$properties.f_72737_ = 0.0F;
+             ruinedportalpiece$properties.f_72741_ = true;
+          } else {
+-            boolean flag1 = this.f_73564_.m_142508_() < 0.5F;
++            boolean flag1 = this.f_73564_.nextFloat() < 0.5F;
+             ruinedportalpiece$verticalplacement = flag1 ? RuinedPortalPiece.VerticalPlacement.UNDERGROUND : RuinedPortalPiece.VerticalPlacement.ON_LAND_SURFACE;
+-            ruinedportalpiece$properties.f_72738_ = flag1 || this.f_73564_.m_142508_() < 0.5F;
++            ruinedportalpiece$properties.f_72738_ = flag1 || this.f_73564_.nextFloat() < 0.5F;
+          }
+ 
+          ResourceLocation resourcelocation;
+-         if (this.f_73564_.m_142508_() < 0.05F) {
+-            resourcelocation = new ResourceLocation(RuinedPortalFeature.f_66665_[this.f_73564_.m_142421_(RuinedPortalFeature.f_66665_.length)]);
++         if (this.f_73564_.nextFloat() < 0.05F) {
++            resourcelocation = new ResourceLocation(RuinedPortalFeature.f_66665_[this.f_73564_.nextInt(RuinedPortalFeature.f_66665_.length)]);
+          } else {
+-            resourcelocation = new ResourceLocation(RuinedPortalFeature.f_66664_[this.f_73564_.m_142421_(RuinedPortalFeature.f_66664_.length)]);
++            resourcelocation = new ResourceLocation(RuinedPortalFeature.f_66664_[this.f_73564_.nextInt(RuinedPortalFeature.f_66664_.length)]);
+          }
+ 
+          StructureTemplate structuretemplate = p_160296_.m_74341_(resourcelocation);
+          Rotation rotation = Util.m_137545_(Rotation.values(), this.f_73564_);
+-         Mirror mirror = this.f_73564_.m_142508_() < 0.5F ? Mirror.NONE : Mirror.FRONT_BACK;
++         Mirror mirror = this.f_73564_.nextFloat() < 0.5F ? Mirror.NONE : Mirror.FRONT_BACK;
+          BlockPos blockpos = new BlockPos(structuretemplate.m_163801_().m_123341_() / 2, 0, structuretemplate.m_163801_().m_123343_() / 2);
+          BlockPos blockpos1 = p_160297_.m_45615_();
+          BoundingBox boundingbox = structuretemplate.m_74598_(blockpos1, rotation, blockpos, mirror);

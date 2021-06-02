@@ -1,0 +1,11 @@
+--- a/net/minecraft/world/level/entity/EntityLookup.java
++++ b/net/minecraft/world/level/entity/EntityLookup.java
+@@ -20,7 +20,7 @@
+       for(T t : this.f_156806_.values()) {
+          U u = (U)((EntityAccess)p_156816_.m_141990_(t));
+          if (u != null) {
+-            p_156817_.accept((T)u);
++            p_156817_.accept(u);
+          }
+       }
+ 

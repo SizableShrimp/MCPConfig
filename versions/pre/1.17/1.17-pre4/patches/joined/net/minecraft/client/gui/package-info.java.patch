@@ -1,0 +1,11 @@
+--- a/net/minecraft/client/gui/package-info.java
++++ b/net/minecraft/client/gui/package-info.java
+@@ -1,7 +1,7 @@
+ @ParametersAreNonnullByDefault
+ @MethodsReturnNonnullByDefault
+ @FieldsAreNonnullByDefault
+-@OnlyIn(Dist.CLIENT)
++ 
+ package net.minecraft.client.gui;
+ 
+ import javax.annotation.ParametersAreNonnullByDefault;
