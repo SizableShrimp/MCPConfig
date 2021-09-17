@@ -181,13 +181,24 @@ public class MigrateMappings extends DefaultTask {
         for (def cls : meta.keySet()) {
             def data = meta.get(cls)
             def clsBuilder = classes[cls].cls
+            def recordData = data.superName == 'java/lang/Record' ? [fields: [], desc: new StringBuilder('(')] : null
             if (data.fields != null) {
-                for (def fld : data.fields.keySet())
-                    addField(cls, clsBuilder, fld, data.fields.get(fld), findFieldId)
+                for (def fld : data.fields.keySet()) {
+                    def fldData = data.fields.get(fld)
+                    def fldName = addField(cls, clsBuilder, fld, fldData, findFieldId)
+                    // A record field is final and not static
+                    if (recordData != null && fldData.desc != null && (fldData.access & (ACC_FINAL | ACC_STATIC)) == ACC_FINAL) {
+                        recordData.fields.add(fldData)
+                        fldData.name = fldName
+                        recordData.desc.append(fldData.desc)
+                    }
+                }
             }
+            if (recordData != null)
+                recordData.desc.append(')V')
             if (data.methods != null) {
                 for (def mtd : data.methods.keySet())
-                    addMethod(classes, cls, clsBuilder, mtd, data.methods.get(mtd), findMethodId, findParamId, forced)
+                    addMethod(classes, cls, clsBuilder, mtd, recordData, data.methods.get(mtd), findMethodId, findParamId, forced)
             }
         }
         builder.build().write(newMappings.toPath(), IMappingFile.Format.TSRG2)
@@ -355,9 +366,10 @@ public class MigrateMappings extends DefaultTask {
         def id = findId.applyAsInt([owner: cls, name: fld])
         def name = data.force ?: 'f_' + id + '_'
         builder.field(fld, name, id.toString())
+        return name
     }
     
-    def addMethod(def classes, def cls, def builder, def mtd, def data, def findId, def findParId, def forced) {
+    def addMethod(def classes, def cls, def builder, def mtd, def recordData, def data, def findId, def findParId, def forced) {
         def debug = false //'aqa.d()Lnr;'.equals(cls + '.' + mtd)
         def (mname, desc) = mtd.rsplit('(')
         desc = '(' + desc
@@ -412,7 +424,13 @@ public class MigrateMappings extends DefaultTask {
         int idx = 0
         for (def par : Type.getArgumentTypes(desc)) {
             def pid = findParId.applyAsInt([owner: cls, name: mname, desc: desc, index: idx])
-            mbuilder.parameter(idx++, 'o', 'p_' + pid + '_', pid.toString())
+            def parName
+            if (mname == '<init>' && recordData != null && recordData.desc.toString() == desc) {
+                parName = recordData.fields[idx].name
+            } else {
+                parName = 'p_' + pid + '_'
+            }
+            mbuilder.parameter(idx++, 'o', parName, pid.toString())
         }
         
     }
