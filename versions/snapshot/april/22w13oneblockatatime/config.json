@@ -9,7 +9,7 @@
         "jvmargs": ["-Xmx4G"]
     },
     "merge": {
-        "version": "net.minecraftforge:mergetool:1.1.4:fatjar",
+        "version": "net.minecraftforge:mergetool:1.1.5:fatjar",
         "args": ["--client", "{client}", "--server", "{server}", "--ann", "{version}", "--output", "{output}", "--inject", "false"],
         "jvmargs": []
     },
