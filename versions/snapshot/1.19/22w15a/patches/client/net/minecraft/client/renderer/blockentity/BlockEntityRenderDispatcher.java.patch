@@ -1,6 +1,6 @@
 --- a/net/minecraft/client/renderer/blockentity/BlockEntityRenderDispatcher.java
 +++ b/net/minecraft/client/renderer/blockentity/BlockEntityRenderDispatcher.java
-@@ -39,7 +39,7 @@
+@@ -45,7 +45,7 @@
  
     @Nullable
     public <E extends BlockEntity> BlockEntityRenderer<E> m_112265_(E p_112266_) {
